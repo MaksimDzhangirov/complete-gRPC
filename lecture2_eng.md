@@ -26,6 +26,7 @@ generated for you by gRPC. The stub will call gRPC framework under the hood to
 exchange information with the server over the network.
 
 ![gRPC](images/lecture2/grpc.svg "How gRPC works")
+
 **Picture 2** - How gRPC works (Image source: https://grpc.io/docs/guides/)
 
 And voila! Magically, everything just works. Thanks to the stub, the client and 
