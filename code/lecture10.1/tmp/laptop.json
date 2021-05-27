@@ -1,0 +1,62 @@
+{
+ "id": "dfb2c63c-34ab-492d-b887-bbc28e76bd23",
+ "brand": "Apple",
+ "name": "Macbook Air",
+ "cpu": {
+  "brand": "AMD",
+  "name": "Ryzen 5 PRO 3500U",
+  "numberCores": 7,
+  "numberThreads": 12,
+  "minGhz": 2.5532374908444617,
+  "maxGhz": 3.2557416383233475
+ },
+ "ram": {
+  "value": "48",
+  "unit": "GIGABYTE"
+ },
+ "gpus": [
+  {
+   "brand": "NVIDIA",
+   "name": "GTX 1070",
+   "minGhz": 1.2630287081060856,
+   "maxGhz": 1.3540816041972454,
+   "memory": {
+    "value": "4",
+    "unit": "GIGABYTE"
+   }
+  }
+ ],
+ "storages": [
+  {
+   "driver": "SSD",
+   "memory": {
+    "value": "957",
+    "unit": "GIGABYTE"
+   }
+  },
+  {
+   "driver": "HDD",
+   "memory": {
+    "value": "5",
+    "unit": "TERABYTE"
+   }
+  }
+ ],
+ "screen": {
+  "sizeInch": 13.352042,
+  "resolution": {
+   "width": 6689,
+   "height": 3763
+  },
+  "panel": "OLED",
+  "multitouch": true
+ },
+ "keyboard": {
+  "layout": "QWERTZ",
+  "backlit": true
+ },
+ "weightKg": 1.9676145400358904,
+ "priceUsd": 2377.928463552893,
+ "releaseYear": 2017,
+ "updatedAt": "2021-03-29T14:28:55.270379173Z"
+}
