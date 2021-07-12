@@ -1,2 +1,11 @@
 .idea
 code/create_SSL_TLS_certificates/*.pem
+code/create_SSL_TLS_certificates/*.srl
+code/lecture16.1/cert/*.pem
+code/lecture16.1/cert/*.srl
+code/lecture16.2/cert/*.pem
+code/lecture16.2/cert/*.srl
+code/lecture17/cert/*.pem
+code/lecture17/cert/*.srl
+code/lecture18/cert/*.pem
+code/lecture18/cert/*.srl

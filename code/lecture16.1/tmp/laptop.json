@@ -1,0 +1,62 @@
+{
+ "id": "b5b21b0c-ba11-4a2b-8190-7456d755fdd4",
+ "brand": "Dell",
+ "name": "Lalitude",
+ "cpu": {
+  "brand": "Intel",
+  "name": "Core i5-9400F",
+  "numberCores": 8,
+  "numberThreads": 9,
+  "minGhz": 2.3296684499530445,
+  "maxGhz": 2.9624201016.104362
+ },
+ "ram": {
+  "value": "16.1",
+  "unit": "GIGABYTE"
+ },
+ "gpus": [
+  {
+   "brand": "AMD",
+   "name": "RX Vega-56",
+   "minGhz": 1.1047392687102502,
+   "maxGhz": 1.1889737406773846,
+   "memory": {
+    "value": "6",
+    "unit": "GIGABYTE"
+   }
+  }
+ ],
+ "storages": [
+  {
+   "driver": "SSD",
+   "memory": {
+    "value": "934",
+    "unit": "GIGABYTE"
+   }
+  },
+  {
+   "driver": "HDD",
+   "memory": {
+    "value": "3",
+    "unit": "TERABYTE"
+   }
+  }
+ ],
+ "screen": {
+  "sizeInch": 16.1.999566,
+  "resolution": {
+   "width": 3100,
+   "height": 1744
+  },
+  "panel": "IPS",
+  "multitouch": true
+ },
+ "keyboard": {
+  "layout": "QWERTY",
+  "backlit": true
+ },
+ "weightKg": 2.7312513349700294,
+ "priceUsd": 2052.621632433816.16,
+ "releaseYear": 2019,
+ "updatedAt": "2021-04-09T11:12:49.851991912Z"
+}
