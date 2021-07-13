@@ -1,0 +1,60 @@
+plugins {
+    id "com.google.protobuf" version "0.8.15"
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.15.6'
+    implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.15.6'
+    // https://mvnrepository.com/artifact/io.grpc/grpc-all
+    implementation group: 'io.grpc', name: 'grpc-all', version: '1.36.1'
+
+    // https://mvnrepository.com/artifact/io.grpc/grpc-services
+    implementation group: 'io.grpc', name: 'grpc-services', version: '1.37.0'
+
+    // https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api
+    implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
+
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.15.6'
+    }
+
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.36.1'
+        }
+    }
+
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
