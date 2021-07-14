@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  server1:
+    build:
+      context: ./
+      dockerfile: ./build/Dockerfile
+    entrypoint: sh -c "./grpcserver -port 50051 -tls"
+  server2:
+    build:
+      context: ./
+      dockerfile: ./build/Dockerfile
+    entrypoint: sh -c "./grpcserver -port 50052 -tls"
+  nginxservice:
+    image: nginx-service-1
+    depends_on:
+      - server1
+      - server2
+    build:
+      context: ./
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - "8080:8080"
