@@ -1,0 +1,556 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "laptop_service.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "LaptopService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/laptop/create": {
+      "post": {
+        "operationId": "LaptopService_CreateLaptop",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/techschool_pcbookCreateLaptopResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/techschool_pcbookCreateLaptopRequest"
+            }
+          }
+        ],
+        "tags": [
+          "LaptopService"
+        ]
+      }
+    },
+    "/v1/laptop/rate": {
+      "post": {
+        "operationId": "LaptopService_RateLaptop",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/techschool_pcbookRateLaptopResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/rpcStatus"
+                }
+              },
+              "title": "Stream result of techschool_pcbookRateLaptopResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/techschool_pcbookRateLaptopRequest"
+            }
+          }
+        ],
+        "tags": [
+          "LaptopService"
+        ]
+      }
+    },
+    "/v1/laptop/search": {
+      "get": {
+        "operationId": "LaptopService_SearchLaptop",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/techschool_pcbookSearchLaptopResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/rpcStatus"
+                }
+              },
+              "title": "Stream result of techschool_pcbookSearchLaptopResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter.maxPriceUsd",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "filter.minCpuCores",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "filter.minCpuGhz",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "filter.minRam.value",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "filter.minRam.unit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN",
+              "BIT",
+              "BYTE",
+              "KILOBYTE",
+              "MEGABYTE",
+              "GIGABYTE",
+              "TERABYTE"
+            ],
+            "default": "UNKNOWN"
+          }
+        ],
+        "tags": [
+          "LaptopService"
+        ]
+      },
+      "post": {
+        "operationId": "LaptopService_UploadImage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/techschool_pcbookUploadImageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/techschool_pcbookUploadImageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "LaptopService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "KeyboardLayout": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "QWERTY",
+        "QWERTZ",
+        "AZERTY"
+      ],
+      "default": "UNKNOWN"
+    },
+    "MemoryUnit": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "BIT",
+        "BYTE",
+        "KILOBYTE",
+        "MEGABYTE",
+        "GIGABYTE",
+        "TERABYTE"
+      ],
+      "default": "UNKNOWN"
+    },
+    "ScreenPanel": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "IPS",
+        "OLED"
+      ],
+      "default": "UNKNOWN"
+    },
+    "ScreenResolution": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "StorageDriver": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "HDD",
+        "SSD"
+      ],
+      "default": "UNKNOWN"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "techschool_pcbookCPU": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string",
+          "title": "Brand of the CPU"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the CPU"
+        },
+        "numberCores": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "numberThreads": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "minGhz": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxGhz": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "techschool_pcbookCreateLaptopRequest": {
+      "type": "object",
+      "properties": {
+        "laptop": {
+          "$ref": "#/definitions/techschool_pcbookLaptop"
+        }
+      }
+    },
+    "techschool_pcbookCreateLaptopResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "techschool_pcbookFilter": {
+      "type": "object",
+      "properties": {
+        "maxPriceUsd": {
+          "type": "number",
+          "format": "double"
+        },
+        "minCpuCores": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "minCpuGhz": {
+          "type": "number",
+          "format": "double"
+        },
+        "minRam": {
+          "$ref": "#/definitions/techschool_pcbookMemory"
+        }
+      }
+    },
+    "techschool_pcbookGPU": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "minGhz": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxGhz": {
+          "type": "number",
+          "format": "double"
+        },
+        "memory": {
+          "$ref": "#/definitions/techschool_pcbookMemory"
+        }
+      }
+    },
+    "techschool_pcbookImageInfo": {
+      "type": "object",
+      "properties": {
+        "laptopId": {
+          "type": "string"
+        },
+        "imageType": {
+          "type": "string"
+        }
+      }
+    },
+    "techschool_pcbookKeyboard": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "$ref": "#/definitions/KeyboardLayout"
+        },
+        "backlit": {
+          "type": "boolean"
+        }
+      }
+    },
+    "techschool_pcbookLaptop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cpu": {
+          "$ref": "#/definitions/techschool_pcbookCPU"
+        },
+        "ram": {
+          "$ref": "#/definitions/techschool_pcbookMemory"
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/techschool_pcbookGPU"
+          }
+        },
+        "storages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/techschool_pcbookStorage"
+          }
+        },
+        "screen": {
+          "$ref": "#/definitions/techschool_pcbookScreen"
+        },
+        "keyboard": {
+          "$ref": "#/definitions/techschool_pcbookKeyboard"
+        },
+        "weightKg": {
+          "type": "number",
+          "format": "double"
+        },
+        "weightLb": {
+          "type": "number",
+          "format": "double"
+        },
+        "priceUsd": {
+          "type": "number",
+          "format": "double"
+        },
+        "releaseYear": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "techschool_pcbookMemory": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "unit": {
+          "$ref": "#/definitions/MemoryUnit"
+        }
+      }
+    },
+    "techschool_pcbookRateLaptopRequest": {
+      "type": "object",
+      "properties": {
+        "laptopId": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "techschool_pcbookRateLaptopResponse": {
+      "type": "object",
+      "properties": {
+        "laptopId": {
+          "type": "string"
+        },
+        "ratedCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "averageScore": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "techschool_pcbookScreen": {
+      "type": "object",
+      "properties": {
+        "sizeInch": {
+          "type": "number",
+          "format": "float"
+        },
+        "resolution": {
+          "$ref": "#/definitions/ScreenResolution"
+        },
+        "panel": {
+          "$ref": "#/definitions/ScreenPanel"
+        },
+        "multitouch": {
+          "type": "boolean"
+        }
+      }
+    },
+    "techschool_pcbookSearchLaptopResponse": {
+      "type": "object",
+      "properties": {
+        "laptop": {
+          "$ref": "#/definitions/techschool_pcbookLaptop"
+        }
+      }
+    },
+    "techschool_pcbookStorage": {
+      "type": "object",
+      "properties": {
+        "driver": {
+          "$ref": "#/definitions/StorageDriver"
+        },
+        "memory": {
+          "$ref": "#/definitions/techschool_pcbookMemory"
+        }
+      }
+    },
+    "techschool_pcbookUploadImageRequest": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/techschool_pcbookImageInfo"
+        },
+        "chunkData": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "techschool_pcbookUploadImageResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
