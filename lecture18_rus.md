@@ -16,7 +16,7 @@ gRPC. Однако создавать API для REST довольно труд�
 Всё что нам нужно сделать — это внести небольшие изменения в сервис. Этим мы
 и займёмся на этой лекции. [Эта ссылка](https://github.com/grpc-ecosystem/grpc-gateway) 
 ведёт на github страницу gRPC шлюза. Я буду использовать его последнюю версию,
-то есть вторую. Документацию к нему достапна на [этой странице](https://grpc-ecosystem.github.io/grpc-gateway/).
+то есть вторую. Документацию к нему доступна на [этой странице](https://grpc-ecosystem.github.io/grpc-gateway/).
 Перед тем как начать писать код установим несколько пакетов. Во-первых,
 `protoc-gen-grpc-gateway`. Скопируем github ссылку и выполним
 
@@ -57,12 +57,6 @@ google/api/httpbody.proto
 `google.api.http`. Мы объявляем маршрут, использующий метод POST и путь
 `v1/auth/login`. У POST запроса должно быть `body`, поэтому добавим сюда 
 поле `body` со значением `*`.
-
-Let's start with the `auth_service.proto`. First we need to import 
-`google/api/annotations.proto`. Then inside the Login RPC, we add this option
-`google.api.http`. We declare the route with method POST, and the path is
-`v1/auth/login`. Since this is a POST request, it should have a body so we add
-body star here.
 
 ```protobuf
 // ...
