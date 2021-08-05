@@ -14,7 +14,7 @@
 универсальным и не блокирующим. Это означает, что сторонам не нужно ждать 
 ответа перед отправкой следующего сообщения.
 
-![4_types_of_gRPC](images/lecture5/4_types_of_gRPC_rus.png)
+![4_типа_gRPC](images/lecture5/4_types_of_gRPC_rus.png)
 
 **Рисунок 1** - 4 типа gRPC
 
