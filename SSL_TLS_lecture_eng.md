@@ -138,7 +138,7 @@ encrypt. Alice's plaintext message goes through a symmetric encryption
 algorithm such as AES-256-GCM or CHACHA20. This encryption algorithm also takes
 a shared secret key and a random nonce, or an initialization vector (IV) as 
 input. It will return the encrypted message. The second step is to 
-authenticate. The encrypted message, the secret key and the none become 
+authenticate. The encrypted message, the secret key and the nonce become 
 inputs of a MAC algorithm such as GMAC if you use AES-256-GCM, or POLY1305 if 
 you use CHACHA20 encryption algorithm. This MAC algorithm acts like a 
 cryptographic hash function and its output is a MAC, or message authentication
