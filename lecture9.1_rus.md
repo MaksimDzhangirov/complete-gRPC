@@ -174,7 +174,7 @@ func randomCPUName(brand string) string {
 `sample/random.go`
 ```go
 func randomInt(min, max int) int {
-    return min + rand.Int(max-min+1)
+    return min + rand.Intn(max-min+1)
 }
 ```
 
