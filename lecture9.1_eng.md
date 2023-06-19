@@ -180,7 +180,7 @@ generate a random integer between `min` and `max`.
 `sample/random.go`
 ```go
 func randomInt(min, max int) int {
-    return min + rand.Int(max-min+1)
+    return min + rand.Intn(max-min+1)
 }
 ```
 
