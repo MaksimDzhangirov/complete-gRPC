@@ -115,7 +115,7 @@ go get -u google.golang.org/grpc
 and second, the `protoc-gen-go` library
 
 ```shell
-go get -u github.com/golang/protobuf/protoc-gen-go
+go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 ```
 
 Now we are all set to generate Go codes, I will create a new folder named `pb` 
