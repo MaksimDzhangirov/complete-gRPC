@@ -75,7 +75,7 @@ the package where generated code will be stored. Just add line
 ```protobuf
 syntax = "proto3";
 
-option go_package = ".;pb";
+option go_package = "./pb";
 
 message CPU {
   // Brand of the CPU
@@ -115,7 +115,7 @@ go get -u google.golang.org/grpc
 and second, the `protoc-gen-go` library
 
 ```shell
-go get -u github.com/golang/protobuf/protoc-gen-go
+go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 ```
 
 Now we are all set to generate Go codes, I will create a new folder named `pb` 
