@@ -75,7 +75,7 @@ the package where generated code will be stored. Just add line
 ```protobuf
 syntax = "proto3";
 
-option go_package = ".;pb";
+option go_package = "./pb";
 
 message CPU {
   // Brand of the CPU
